@@ -34,40 +34,48 @@ public class Zoologico {
 
     // Método que retorna a descrição detalhada de um animal dado o seu nome
     public String descricaoLongaUnica(String nome){
-        String texto = nome + " não encontrado no zoologico!";
+        Animal animal = buscarAnimal(nome);
+        if(animal == null) {
+            return nome + " não encontrado no zoologico!";
+        }
+        return animal.getDescricaoLonga();        
+    }
+
+    // Método que retorna um animal dado seu nome
+    private Animal buscarAnimal(String nome) {
         for(Animal animal : animais) {
             if(animal.getNome().equals(nome)) {
-                return animal.getDescricaoLonga();
+                return animal;
             }
         }
-        return texto;
+        return null;
     }
 
     // Método que retorna a descricao curta de todos os animais do zoologico
     public String descricaoTodos() {
-        if (animais.size() != 0) {
-            String texto = "";
-            for(Animal animal : animais) {
-                texto += animal.getDescricao() + "\n";
-            }
-            return texto;
-        }
-        else  {
-            return "Não há animais no zoologico!";
-        }
+        return pegarDescricao(1);
     }
 
     //Método que retorna a descricao longa de todos os animais do zoologico
     public String descricaoLongaTodos() {
-        if (animais.size() != 0) {
-            String texto = "";
+       return pegarDescricao(2);
+    }
+
+    //Método para auxiliar na descrição dos animais
+    private String pegarDescricao(int opcao) {
+        if(animais.size() == 0) {
+            return "Não há animais no zoologico!";
+        }
+        String texto = "";
+        if (opcao == 1) {
+            for(Animal animal : animais) {
+                texto += animal.getDescricao() + "\n";
+            }
+        } else {
             for(Animal animal : animais) {
                 texto += animal.getDescricaoLonga() + "\n";
             }
-            return texto;
         }
-        else {
-            return "Não há animais no zoologico!";
-        }
+        return texto;
     }
 }
