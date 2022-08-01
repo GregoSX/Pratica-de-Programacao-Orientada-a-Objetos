@@ -97,9 +97,9 @@ Explicação: A variável animal pode assumir espécies diferentes durante a exe
 
 Classe: Zoologico
 
-Linha: 47 a 58
+Linha: 14
 
-Explicação: No método descricaoTodos() está sendo utilizado o princípio da substituição, pois um objeto da superclasse pode ser utilizado, e está sendo, no lugar de um objeto da subclasse.
+Explicação: Na inserção de um lobo no ArrayList de animais está sendo utilizado o princípio da substituição, pois o objeto animais esperar receber um Animal, entretanto recebe um objeto do tipo Lobo.
 
 
 3. Identifique algum ponto no código onde uma variável tem tipo estático e tipo dinâmico diferentes (indique quais são os tipos estático e dinâmico da variável neste ponto).
@@ -120,4 +120,3 @@ Tipo dinâmico: Pode assumir os tipos Lobo, Gato, Aguia e Galinha
 Classe: Zoologico
 
 Linha: 65
-
